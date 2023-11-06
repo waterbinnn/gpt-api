@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import styles from "./SedMessage.module.scss";
-import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -26,7 +25,7 @@ export const SendMessage = ({
         onChange={(e) => setUserMsg(e.target.value)}
       />
       <button
-        disabled={isLoading}
+        disabled={userMsg.length === 0 || isLoading}
         type="button"
         className={cx("btn-send")}
         onClick={getMessage}
